@@ -97,13 +97,6 @@ void NOMAD::Algorithm::init()
     _pbParams = subproblem.getPbParams();
     _pbParams->checkAndComply();
 
-    /** Step::userInterrupt() will be called if CTRL-C is pressed.
-     * Currently, the main thread will wait for all evaluations to be complete.
-     * \todo Propage interruption to all threads, for all parallel evaluations of blackbox.
-     */
-    signal(SIGINT, userInterrupt);
-    signal(SIGSEGV, debugSegFault);
-
 }
 
 
